@@ -22,7 +22,7 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-  assets:
-    - assets/env
-    - assets/images
-    - assets/lotties
+  # assets:
+  #   - assets/
+  #   - assets/images
+  #   - assets/lotties
