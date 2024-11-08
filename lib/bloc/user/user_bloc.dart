@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:roomies_app/models/user_model.dart';
-import 'package:roomies_app/services/secure_sotrage/secure_storage_service.dart';
+import 'package:roomies_app/services/secure_storage/secure_storage_service.dart';
 import 'package:roomies_app/services/user/user_service.dart';
 import 'package:roomies_app/utils/secure_storage_keys.dart';
 

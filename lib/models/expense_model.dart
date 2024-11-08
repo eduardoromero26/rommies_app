@@ -6,16 +6,17 @@ class ExpenseModel {
   final String houseId;
   final String userId;
   final DateTime date;
+  final int type;
 
-  ExpenseModel({
-    required this.id,
-    required this.title,
-    this.description,
-    required this.amount,
-    required this.houseId,
-    required this.userId,
-    required this.date,
-  });
+  ExpenseModel(
+      {required this.id,
+      required this.title,
+      this.description,
+      required this.amount,
+      required this.houseId,
+      required this.userId,
+      required this.date,
+      required this.type});
 
   factory ExpenseModel.fromJson(Map<String, dynamic> json) {
     return ExpenseModel(
@@ -25,7 +26,10 @@ class ExpenseModel {
       amount: json['amount'],
       houseId: json['houseId'],
       userId: json['userId'],
-      date: DateTime.parse(json['date']),
+      type: json['type'],
+      date: DateTime.parse(
+        json['date'],
+      ),
     );
   }
 
@@ -37,6 +41,7 @@ class ExpenseModel {
       'amount': amount,
       'houseId': houseId,
       'userId': userId,
+      'type': type,
       'date': date.toIso8601String(),
     };
   }

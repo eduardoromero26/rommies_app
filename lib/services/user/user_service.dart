@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:roomies_app/models/user_model.dart';
 import 'package:roomies_app/services/firestore/firestore_service.dart';
-import 'package:roomies_app/services/secure_sotrage/secure_storage_service.dart';
+import 'package:roomies_app/services/secure_storage/secure_storage_service.dart';
 import 'package:roomies_app/utils/firestore_keys.dart';
 import 'package:roomies_app/utils/secure_storage_keys.dart';
 
@@ -13,7 +13,8 @@ class UserService {
       if (userDoc.exists) {
         final userModel = UserModel.fromDocument(
             userDoc.data() as Map<String, dynamic>, userDoc.id);
-        storeUserModel(userModel);
+        await storeHouseIdInSecureStorage(userModel.houseId);
+        await storeUserModel(userModel);
         return userModel;
       } else {
         Exception('User document does not exist');
@@ -32,6 +33,14 @@ class UserService {
           .write(SecureStorageKeys.userModel, userModelJson);
     } catch (e) {
       Exception('Error storing user model: $e');
+    }
+  }
+
+  Future<void> storeHouseIdInSecureStorage(String houseId) async {
+    try {
+      await SecureStorageService().write(SecureStorageKeys.houseId, houseId);
+    } catch (e) {
+      Exception('Error storing house ID: $e');
     }
   }
 }

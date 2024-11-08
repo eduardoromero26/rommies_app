@@ -2,10 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roomies_app/bloc/auth/auth_bloc.dart';
+import 'package:roomies_app/bloc/expense/expense_bloc.dart';
 import 'package:roomies_app/bloc/user/user_bloc.dart';
 import 'package:roomies_app/firebase_options.dart';
 import 'package:roomies_app/screens/splash/splash_screen.dart';
 import 'package:roomies_app/services/auth/auth_service.dart';
+import 'package:roomies_app/services/expenses/expenses_service.dart';
 import 'package:roomies_app/services/user/user_service.dart';
 
 void main() async {
@@ -21,6 +23,9 @@ void main() async {
         ),
         BlocProvider<UserBloc>(
           create: (context) => UserBloc(UserService()),
+        ),
+        BlocProvider<ExpenseBloc>(
+          create: (context) => ExpenseBloc(ExpensesService()),
         ),
       ],
       child: const MyApp(),
