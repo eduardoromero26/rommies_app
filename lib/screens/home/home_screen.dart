@@ -70,75 +70,26 @@ class HomeScreen extends StatelessWidget {
                           height: 16,
                         ),
                         Container(
-                          height: 180,
+                          height: 80,
                           width: double.infinity,
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           decoration: BoxDecoration(
                               color: Colors.grey[100],
                               borderRadius: BorderRadius.circular(20)),
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Balance del mes'),
-                              const SizedBox(
+                              Text('Balance del mes'),
+                              SizedBox(
                                 height: 2.0,
                               ),
-                              const Text(
+                              Text(
                                 '\$2,430',
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 12.0,
-                              ),
-                              Row(
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      CircleAvatar(
-                                        child: IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.arrow_upward,
-                                              color: Colors.black,
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        height: 6.0,
-                                      ),
-                                      const Text('Aportes')
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 16.0,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      CircleAvatar(
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.arrow_downward_outlined,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 6.0,
-                                      ),
-                                      const Text('Gastos')
-                                    ],
-                                  )
-                                ],
                               ),
                             ],
                           ),
@@ -363,6 +314,11 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                 height: 48,
                 width: double.infinity,
                 child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) => Theme.of(context).primaryColor,
+                    ),
+                  ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
@@ -370,7 +326,10 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                       Navigator.pop(context);
                     }
                   },
-                  child: const Text('Guardar'),
+                  child: const Text(
+                    'Guardar',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
               const SizedBox(
