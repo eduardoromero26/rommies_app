@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class UserModel {
   final String email;
   final String name;
@@ -26,6 +28,10 @@ class UserModel {
       houseId: data['houseId'],
       uid: documentId,
     );
+  }
+
+  String toJsonEncode() {
+    return jsonEncode(toJson());
   }
 
   Map<String, dynamic> toJson() {
