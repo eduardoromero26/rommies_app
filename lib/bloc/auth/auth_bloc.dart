@@ -4,7 +4,7 @@ import 'package:roomies_app/models/token_model.dart';
 import 'package:roomies_app/services/auth/auth_service.dart';
 
 part 'auth_bloc.freezed.dart';
-part 'auth_events.dart';
+part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -13,9 +13,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoginWithEmail>((event, emit) async {
       try {
         emit(const AuthState.loadingStarted());
-        final user =
+        final uid =
             await authService.loginWithEmail(event.email, event.password);
-        emit(AuthState.loadedSuccess(TokenModel(uid: user.uid)));
+        emit(AuthState.loadedSuccess(TokenModel(uid: uid.uid)));
       } catch (e) {
         emit(AuthState.loadedFailed(e.toString()));
         emit(const AuthState.initial());

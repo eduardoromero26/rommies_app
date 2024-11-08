@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:roomies_app/bloc/user/user_bloc.dart';
 import 'package:roomies_app/screens/auth/login_screen.dart';
 import 'package:roomies_app/screens/home/home_screen.dart';
-import 'package:roomies_app/services/secure_sotrage/secure_storage_service.dart';
-import 'package:roomies_app/utils/secure_storage_keys.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,28 +15,33 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _checkAuth();
-  }
-
-  Future<void> _checkAuth() async {
-    String? token = await SecureStorageService().read(SecureStorageKeys.uid);
-    if (token != null && token.isNotEmpty) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
-    } else {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
-      );
-    }
+    context.read<UserBloc>().add(const ReadUserCollection());
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
+    return BlocConsumer<UserBloc, UserState>(
+      listener: (context, state) {
+        state.maybeWhen(
+            orElse: () {},
+            loadedSuccess: (userModel) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
+            },
+            loadedFailed: (e) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            });
+      },
+      builder: (context, state) {
+        return const Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
     );
   }
 }

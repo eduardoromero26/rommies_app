@@ -1,20 +1,17 @@
 class UserModel {
-  final String userId;
   final String email;
   final String name;
   final String houseId;
   final String uid;
 
   UserModel(
-      {required this.userId,
-      required this.email,
+      {required this.email,
       required this.name,
       required this.houseId,
       required this.uid});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      userId: json['userId'],
       email: json['email'],
       name: json['name'],
       houseId: json['houseId'],
@@ -24,7 +21,6 @@ class UserModel {
 
   factory UserModel.fromDocument(Map<String, dynamic> data, String documentId) {
     return UserModel(
-      userId: data['userId'],
       email: data['email'],
       name: data['name'],
       houseId: data['houseId'],
@@ -34,7 +30,6 @@ class UserModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'userId': userId,
       'email': email,
       'name': name,
       'houseId': houseId,

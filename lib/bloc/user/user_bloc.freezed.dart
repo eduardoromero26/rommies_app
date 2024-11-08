@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_bloc.dart';
+part of 'user_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AuthState {
+mixin _$UserState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingStarted,
-    required TResult Function(TokenModel uid) loadedSuccess,
+    required TResult Function(UserModel userModel) loadedSuccess,
     required TResult Function(String message) loadedFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingStarted,
-    TResult? Function(TokenModel uid)? loadedSuccess,
+    TResult? Function(UserModel userModel)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingStarted,
-    TResult Function(TokenModel uid)? loadedSuccess,
+    TResult Function(UserModel userModel)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
     required TResult orElse(),
   }) =>
@@ -69,22 +69,22 @@ mixin _$AuthState {
 }
 
 /// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
+abstract class $UserStateCopyWith<$Res> {
+  factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
+      _$UserStateCopyWithImpl<$Res, UserState>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
+class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
+    implements $UserStateCopyWith<$Res> {
+  _$UserStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -97,13 +97,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -114,7 +114,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AuthState.initial()';
+    return 'UserState.initial()';
   }
 
   @override
@@ -131,7 +131,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingStarted,
-    required TResult Function(TokenModel uid) loadedSuccess,
+    required TResult Function(UserModel userModel) loadedSuccess,
     required TResult Function(String message) loadedFailed,
   }) {
     return initial();
@@ -142,7 +142,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingStarted,
-    TResult? Function(TokenModel uid)? loadedSuccess,
+    TResult? Function(UserModel userModel)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
   }) {
     return initial?.call();
@@ -153,7 +153,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingStarted,
-    TResult Function(TokenModel uid)? loadedSuccess,
+    TResult Function(UserModel userModel)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
     required TResult orElse(),
   }) {
@@ -201,7 +201,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AuthState {
+abstract class _Initial implements UserState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -214,13 +214,13 @@ abstract class _$$LoadingStartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingStartedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoadingStartedImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$LoadingStartedImpl>
     implements _$$LoadingStartedImplCopyWith<$Res> {
   __$$LoadingStartedImplCopyWithImpl(
       _$LoadingStartedImpl _value, $Res Function(_$LoadingStartedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -231,7 +231,7 @@ class _$LoadingStartedImpl implements _LoadingStarted {
 
   @override
   String toString() {
-    return 'AuthState.loadingStarted()';
+    return 'UserState.loadingStarted()';
   }
 
   @override
@@ -248,7 +248,7 @@ class _$LoadingStartedImpl implements _LoadingStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingStarted,
-    required TResult Function(TokenModel uid) loadedSuccess,
+    required TResult Function(UserModel userModel) loadedSuccess,
     required TResult Function(String message) loadedFailed,
   }) {
     return loadingStarted();
@@ -259,7 +259,7 @@ class _$LoadingStartedImpl implements _LoadingStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingStarted,
-    TResult? Function(TokenModel uid)? loadedSuccess,
+    TResult? Function(UserModel userModel)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
   }) {
     return loadingStarted?.call();
@@ -270,7 +270,7 @@ class _$LoadingStartedImpl implements _LoadingStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingStarted,
-    TResult Function(TokenModel uid)? loadedSuccess,
+    TResult Function(UserModel userModel)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
     required TResult orElse(),
   }) {
@@ -318,7 +318,7 @@ class _$LoadingStartedImpl implements _LoadingStarted {
   }
 }
 
-abstract class _LoadingStarted implements AuthState {
+abstract class _LoadingStarted implements UserState {
   const factory _LoadingStarted() = _$LoadingStartedImpl;
 }
 
@@ -328,29 +328,29 @@ abstract class _$$LoadedSuccessImplCopyWith<$Res> {
           _$LoadedSuccessImpl value, $Res Function(_$LoadedSuccessImpl) then) =
       __$$LoadedSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({TokenModel uid});
+  $Res call({UserModel userModel});
 }
 
 /// @nodoc
 class __$$LoadedSuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoadedSuccessImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$LoadedSuccessImpl>
     implements _$$LoadedSuccessImplCopyWith<$Res> {
   __$$LoadedSuccessImplCopyWithImpl(
       _$LoadedSuccessImpl _value, $Res Function(_$LoadedSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = null,
+    Object? userModel = null,
   }) {
     return _then(_$LoadedSuccessImpl(
-      null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as TokenModel,
+      null == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel,
     ));
   }
 }
@@ -358,14 +358,14 @@ class __$$LoadedSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedSuccessImpl implements _LoadedSuccess {
-  const _$LoadedSuccessImpl(this.uid);
+  const _$LoadedSuccessImpl(this.userModel);
 
   @override
-  final TokenModel uid;
+  final UserModel userModel;
 
   @override
   String toString() {
-    return 'AuthState.loadedSuccess(uid: $uid)';
+    return 'UserState.loadedSuccess(userModel: $userModel)';
   }
 
   @override
@@ -373,13 +373,14 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedSuccessImpl &&
-            (identical(other.uid, uid) || other.uid == uid));
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, uid);
+  int get hashCode => Object.hash(runtimeType, userModel);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -392,10 +393,10 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingStarted,
-    required TResult Function(TokenModel uid) loadedSuccess,
+    required TResult Function(UserModel userModel) loadedSuccess,
     required TResult Function(String message) loadedFailed,
   }) {
-    return loadedSuccess(uid);
+    return loadedSuccess(userModel);
   }
 
   @override
@@ -403,10 +404,10 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingStarted,
-    TResult? Function(TokenModel uid)? loadedSuccess,
+    TResult? Function(UserModel userModel)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
   }) {
-    return loadedSuccess?.call(uid);
+    return loadedSuccess?.call(userModel);
   }
 
   @override
@@ -414,12 +415,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingStarted,
-    TResult Function(TokenModel uid)? loadedSuccess,
+    TResult Function(UserModel userModel)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
     required TResult orElse(),
   }) {
     if (loadedSuccess != null) {
-      return loadedSuccess(uid);
+      return loadedSuccess(userModel);
     }
     return orElse();
   }
@@ -462,12 +463,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
   }
 }
 
-abstract class _LoadedSuccess implements AuthState {
-  const factory _LoadedSuccess(final TokenModel uid) = _$LoadedSuccessImpl;
+abstract class _LoadedSuccess implements UserState {
+  const factory _LoadedSuccess(final UserModel userModel) = _$LoadedSuccessImpl;
 
-  TokenModel get uid;
+  UserModel get userModel;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedSuccessImplCopyWith<_$LoadedSuccessImpl> get copyWith =>
@@ -485,13 +486,13 @@ abstract class _$$LoadedFailedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadedFailedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoadedFailedImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$LoadedFailedImpl>
     implements _$$LoadedFailedImplCopyWith<$Res> {
   __$$LoadedFailedImplCopyWithImpl(
       _$LoadedFailedImpl _value, $Res Function(_$LoadedFailedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -517,7 +518,7 @@ class _$LoadedFailedImpl implements _LoadedFailed {
 
   @override
   String toString() {
-    return 'AuthState.loadedFailed(message: $message)';
+    return 'UserState.loadedFailed(message: $message)';
   }
 
   @override
@@ -531,7 +532,7 @@ class _$LoadedFailedImpl implements _LoadedFailed {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -544,7 +545,7 @@ class _$LoadedFailedImpl implements _LoadedFailed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingStarted,
-    required TResult Function(TokenModel uid) loadedSuccess,
+    required TResult Function(UserModel userModel) loadedSuccess,
     required TResult Function(String message) loadedFailed,
   }) {
     return loadedFailed(message);
@@ -555,7 +556,7 @@ class _$LoadedFailedImpl implements _LoadedFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingStarted,
-    TResult? Function(TokenModel uid)? loadedSuccess,
+    TResult? Function(UserModel userModel)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
   }) {
     return loadedFailed?.call(message);
@@ -566,7 +567,7 @@ class _$LoadedFailedImpl implements _LoadedFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingStarted,
-    TResult Function(TokenModel uid)? loadedSuccess,
+    TResult Function(UserModel userModel)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
     required TResult orElse(),
   }) {
@@ -614,12 +615,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
   }
 }
 
-abstract class _LoadedFailed implements AuthState {
+abstract class _LoadedFailed implements UserState {
   const factory _LoadedFailed(final String message) = _$LoadedFailedImpl;
 
   String get message;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedFailedImplCopyWith<_$LoadedFailedImpl> get copyWith =>

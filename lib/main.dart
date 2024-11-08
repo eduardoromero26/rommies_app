@@ -2,9 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roomies_app/bloc/auth/auth_bloc.dart';
+import 'package:roomies_app/bloc/user/user_bloc.dart';
 import 'package:roomies_app/firebase_options.dart';
 import 'package:roomies_app/screens/splash/splash_screen.dart';
 import 'package:roomies_app/services/auth/auth_service.dart';
+import 'package:roomies_app/services/user/user_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,9 @@ void main() async {
       providers: [
         BlocProvider<AuthBloc>(
           create: (context) => AuthBloc(AuthService()),
+        ),
+        BlocProvider<UserBloc>(
+          create: (context) => UserBloc(UserService()),
         ),
       ],
       child: const MyApp(),
