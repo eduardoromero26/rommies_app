@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:roomies_app/services/secure_storage_service.dart';
+import 'package:roomies_app/services/secure_sotrage/secure_storage_service.dart';
 import 'package:roomies_app/utils/secure_storage_keys.dart';
 
 class AuthService {

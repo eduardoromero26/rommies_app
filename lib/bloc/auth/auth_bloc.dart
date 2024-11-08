@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:roomies_app/models/token_model.dart';
-import 'package:roomies_app/services/auth_service.dart';
+import 'package:roomies_app/services/auth/auth_service.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_events.dart';
