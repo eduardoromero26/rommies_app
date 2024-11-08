@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roomies_app/bloc/auth/auth_bloc.dart';
 import 'package:roomies_app/firebase_options.dart';
-import 'package:roomies_app/screens/auth/login_screen.dart';
-import 'package:roomies_app/screens/home/home_screen.dart';
+import 'package:roomies_app/screens/splash/splash_screen.dart';
 import 'package:roomies_app/services/auth_service.dart';
 
 void main() async {
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }
