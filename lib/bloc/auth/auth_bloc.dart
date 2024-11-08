@@ -12,13 +12,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this.authService) : super(const AuthState.initial()) {
     on<LoginWithEmail>((event, emit) async {
       try {
-        emit(const AuthState.initial());
         emit(const AuthState.loadingStarted());
         final user =
             await authService.loginWithEmail(event.email, event.password);
-        emit(AuthState.loadedSuccess(TokenModel(uid: user!.uid)));
+        emit(AuthState.loadedSuccess(TokenModel(uid: user.uid)));
       } catch (e) {
         emit(AuthState.loadedFailed(e.toString()));
+        emit(const AuthState.initial());
       }
     });
   }

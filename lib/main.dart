@@ -8,6 +8,7 @@ import 'package:roomies_app/screens/home/home_screen.dart';
 import 'package:roomies_app/services/auth_service.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
