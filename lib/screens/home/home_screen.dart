@@ -327,7 +327,7 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                     }
                   },
                   child: const Text(
-                    'Guardar',
+                    'Crear Transacción',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
