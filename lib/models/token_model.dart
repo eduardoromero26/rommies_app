@@ -1,17 +1,17 @@
 class TokenModel {
-  final String userId;
+  final String uid;
 
-  TokenModel({required this.userId});
+  TokenModel({required this.uid});
 
   factory TokenModel.fromJson(Map<String, dynamic> json) {
     return TokenModel(
-      userId: json['userId'],
+      uid: json['uid'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'userId': userId,
+      'uid': uid,
     };
   }
 }
