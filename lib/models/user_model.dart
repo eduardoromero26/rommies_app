@@ -22,6 +22,16 @@ class UserModel {
     );
   }
 
+  factory UserModel.fromDocument(Map<String, dynamic> data, String documentId) {
+    return UserModel(
+      userId: data['userId'],
+      email: data['email'],
+      name: data['name'],
+      houseId: data['houseId'],
+      uid: documentId,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'userId': userId,
