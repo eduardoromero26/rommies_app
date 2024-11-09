@@ -18,3 +18,8 @@ class UpdateExpense extends ExpenseEvent {
   final ExpenseModel expense;
   const UpdateExpense(this.expenseId, this.expense);
 }
+
+class DeleteExpense extends ExpenseEvent {
+  final String expenseId;
+  const DeleteExpense(this.expenseId);
+}

@@ -22,6 +22,12 @@ mixin _$ExpenseState {
     required TResult Function() loadingStarted,
     required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
     required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +36,12 @@ mixin _$ExpenseState {
     TResult? Function()? loadingStarted,
     TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +50,12 @@ mixin _$ExpenseState {
     TResult Function()? loadingStarted,
     TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +65,12 @@ mixin _$ExpenseState {
     required TResult Function(_LoadingStarted value) loadingStarted,
     required TResult Function(_LoadedSuccess value) loadedSuccess,
     required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +79,12 @@ mixin _$ExpenseState {
     TResult? Function(_LoadingStarted value)? loadingStarted,
     TResult? Function(_LoadedSuccess value)? loadedSuccess,
     TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +93,12 @@ mixin _$ExpenseState {
     TResult Function(_LoadingStarted value)? loadingStarted,
     TResult Function(_LoadedSuccess value)? loadedSuccess,
     TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +170,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loadingStarted,
     required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
     required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
   }) {
     return initial();
   }
@@ -145,6 +187,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loadingStarted,
     TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
   }) {
     return initial?.call();
   }
@@ -156,6 +204,12 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loadingStarted,
     TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +225,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_LoadingStarted value) loadingStarted,
     required TResult Function(_LoadedSuccess value) loadedSuccess,
     required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
   }) {
     return initial(this);
   }
@@ -182,6 +242,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LoadingStarted value)? loadingStarted,
     TResult? Function(_LoadedSuccess value)? loadedSuccess,
     TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +259,12 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoadingStarted value)? loadingStarted,
     TResult Function(_LoadedSuccess value)? loadedSuccess,
     TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +323,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     required TResult Function() loadingStarted,
     required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
     required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
   }) {
     return loadingStarted();
   }
@@ -262,6 +340,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     TResult? Function()? loadingStarted,
     TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
   }) {
     return loadingStarted?.call();
   }
@@ -273,6 +357,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     TResult Function()? loadingStarted,
     TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadingStarted != null) {
@@ -288,6 +378,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     required TResult Function(_LoadingStarted value) loadingStarted,
     required TResult Function(_LoadedSuccess value) loadedSuccess,
     required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
   }) {
     return loadingStarted(this);
   }
@@ -299,6 +395,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     TResult? Function(_LoadingStarted value)? loadingStarted,
     TResult? Function(_LoadedSuccess value)? loadedSuccess,
     TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
   }) {
     return loadingStarted?.call(this);
   }
@@ -310,6 +412,12 @@ class _$LoadingStartedImpl implements _LoadingStarted {
     TResult Function(_LoadingStarted value)? loadingStarted,
     TResult Function(_LoadedSuccess value)? loadedSuccess,
     TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadingStarted != null) {
@@ -403,6 +511,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     required TResult Function() loadingStarted,
     required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
     required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
   }) {
     return loadedSuccess(expensesList);
   }
@@ -414,6 +528,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     TResult? Function()? loadingStarted,
     TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
   }) {
     return loadedSuccess?.call(expensesList);
   }
@@ -425,6 +545,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     TResult Function()? loadingStarted,
     TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadedSuccess != null) {
@@ -440,6 +566,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     required TResult Function(_LoadingStarted value) loadingStarted,
     required TResult Function(_LoadedSuccess value) loadedSuccess,
     required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
   }) {
     return loadedSuccess(this);
   }
@@ -451,6 +583,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     TResult? Function(_LoadingStarted value)? loadingStarted,
     TResult? Function(_LoadedSuccess value)? loadedSuccess,
     TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
   }) {
     return loadedSuccess?.call(this);
   }
@@ -462,6 +600,12 @@ class _$LoadedSuccessImpl implements _LoadedSuccess {
     TResult Function(_LoadingStarted value)? loadingStarted,
     TResult Function(_LoadedSuccess value)? loadedSuccess,
     TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadedSuccess != null) {
@@ -556,6 +700,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     required TResult Function() loadingStarted,
     required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
     required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
   }) {
     return loadedFailed(message);
   }
@@ -567,6 +717,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     TResult? Function()? loadingStarted,
     TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
   }) {
     return loadedFailed?.call(message);
   }
@@ -578,6 +734,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     TResult Function()? loadingStarted,
     TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
     TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadedFailed != null) {
@@ -593,6 +755,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     required TResult Function(_LoadingStarted value) loadingStarted,
     required TResult Function(_LoadedSuccess value) loadedSuccess,
     required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
   }) {
     return loadedFailed(this);
   }
@@ -604,6 +772,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     TResult? Function(_LoadingStarted value)? loadingStarted,
     TResult? Function(_LoadedSuccess value)? loadedSuccess,
     TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
   }) {
     return loadedFailed?.call(this);
   }
@@ -615,6 +789,12 @@ class _$LoadedFailedImpl implements _LoadedFailed {
     TResult Function(_LoadingStarted value)? loadingStarted,
     TResult Function(_LoadedSuccess value)? loadedSuccess,
     TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
     required TResult orElse(),
   }) {
     if (loadedFailed != null) {
@@ -633,5 +813,1028 @@ abstract class _LoadedFailed implements ExpenseState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedFailedImplCopyWith<_$LoadedFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletedSuccessImplCopyWith<$Res> {
+  factory _$$DeletedSuccessImplCopyWith(_$DeletedSuccessImpl value,
+          $Res Function(_$DeletedSuccessImpl) then) =
+      __$$DeletedSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeletedSuccessImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$DeletedSuccessImpl>
+    implements _$$DeletedSuccessImplCopyWith<$Res> {
+  __$$DeletedSuccessImplCopyWithImpl(
+      _$DeletedSuccessImpl _value, $Res Function(_$DeletedSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeletedSuccessImpl implements _DeletedSuccess {
+  const _$DeletedSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ExpenseState.deletedSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeletedSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return deletedSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return deletedSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (deletedSuccess != null) {
+      return deletedSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return deletedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return deletedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (deletedSuccess != null) {
+      return deletedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletedSuccess implements ExpenseState {
+  const factory _DeletedSuccess() = _$DeletedSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$DeletedFailedImplCopyWith<$Res> {
+  factory _$$DeletedFailedImplCopyWith(
+          _$DeletedFailedImpl value, $Res Function(_$DeletedFailedImpl) then) =
+      __$$DeletedFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DeletedFailedImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$DeletedFailedImpl>
+    implements _$$DeletedFailedImplCopyWith<$Res> {
+  __$$DeletedFailedImplCopyWithImpl(
+      _$DeletedFailedImpl _value, $Res Function(_$DeletedFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DeletedFailedImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletedFailedImpl implements _DeletedFailed {
+  const _$DeletedFailedImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ExpenseState.deletedFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletedFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletedFailedImplCopyWith<_$DeletedFailedImpl> get copyWith =>
+      __$$DeletedFailedImplCopyWithImpl<_$DeletedFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return deletedFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return deletedFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (deletedFailed != null) {
+      return deletedFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return deletedFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return deletedFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (deletedFailed != null) {
+      return deletedFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletedFailed implements ExpenseState {
+  const factory _DeletedFailed(final String message) = _$DeletedFailedImpl;
+
+  String get message;
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletedFailedImplCopyWith<_$DeletedFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatedSuccessImplCopyWith<$Res> {
+  factory _$$UpdatedSuccessImplCopyWith(_$UpdatedSuccessImpl value,
+          $Res Function(_$UpdatedSuccessImpl) then) =
+      __$$UpdatedSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdatedSuccessImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$UpdatedSuccessImpl>
+    implements _$$UpdatedSuccessImplCopyWith<$Res> {
+  __$$UpdatedSuccessImplCopyWithImpl(
+      _$UpdatedSuccessImpl _value, $Res Function(_$UpdatedSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UpdatedSuccessImpl implements _UpdatedSuccess {
+  const _$UpdatedSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ExpenseState.updatedSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdatedSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return updatedSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return updatedSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (updatedSuccess != null) {
+      return updatedSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return updatedSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return updatedSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (updatedSuccess != null) {
+      return updatedSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatedSuccess implements ExpenseState {
+  const factory _UpdatedSuccess() = _$UpdatedSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdatedFailedImplCopyWith<$Res> {
+  factory _$$UpdatedFailedImplCopyWith(
+          _$UpdatedFailedImpl value, $Res Function(_$UpdatedFailedImpl) then) =
+      __$$UpdatedFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$UpdatedFailedImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$UpdatedFailedImpl>
+    implements _$$UpdatedFailedImplCopyWith<$Res> {
+  __$$UpdatedFailedImplCopyWithImpl(
+      _$UpdatedFailedImpl _value, $Res Function(_$UpdatedFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$UpdatedFailedImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdatedFailedImpl implements _UpdatedFailed {
+  const _$UpdatedFailedImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ExpenseState.updatedFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdatedFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdatedFailedImplCopyWith<_$UpdatedFailedImpl> get copyWith =>
+      __$$UpdatedFailedImplCopyWithImpl<_$UpdatedFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return updatedFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return updatedFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (updatedFailed != null) {
+      return updatedFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return updatedFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return updatedFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (updatedFailed != null) {
+      return updatedFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatedFailed implements ExpenseState {
+  const factory _UpdatedFailed(final String message) = _$UpdatedFailedImpl;
+
+  String get message;
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdatedFailedImplCopyWith<_$UpdatedFailedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreatedSuccessImplCopyWith<$Res> {
+  factory _$$CreatedSuccessImplCopyWith(_$CreatedSuccessImpl value,
+          $Res Function(_$CreatedSuccessImpl) then) =
+      __$$CreatedSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreatedSuccessImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$CreatedSuccessImpl>
+    implements _$$CreatedSuccessImplCopyWith<$Res> {
+  __$$CreatedSuccessImplCopyWithImpl(
+      _$CreatedSuccessImpl _value, $Res Function(_$CreatedSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CreatedSuccessImpl implements _CreatedSuccess {
+  const _$CreatedSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ExpenseState.createdSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreatedSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return createdSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return createdSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (createdSuccess != null) {
+      return createdSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return createdSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return createdSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (createdSuccess != null) {
+      return createdSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatedSuccess implements ExpenseState {
+  const factory _CreatedSuccess() = _$CreatedSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$CreatedFailedImplCopyWith<$Res> {
+  factory _$$CreatedFailedImplCopyWith(
+          _$CreatedFailedImpl value, $Res Function(_$CreatedFailedImpl) then) =
+      __$$CreatedFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$CreatedFailedImplCopyWithImpl<$Res>
+    extends _$ExpenseStateCopyWithImpl<$Res, _$CreatedFailedImpl>
+    implements _$$CreatedFailedImplCopyWith<$Res> {
+  __$$CreatedFailedImplCopyWithImpl(
+      _$CreatedFailedImpl _value, $Res Function(_$CreatedFailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$CreatedFailedImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreatedFailedImpl implements _CreatedFailed {
+  const _$CreatedFailedImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ExpenseState.createdFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreatedFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreatedFailedImplCopyWith<_$CreatedFailedImpl> get copyWith =>
+      __$$CreatedFailedImplCopyWithImpl<_$CreatedFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingStarted,
+    required TResult Function(List<ExpenseModel> expensesList) loadedSuccess,
+    required TResult Function(String message) loadedFailed,
+    required TResult Function() deletedSuccess,
+    required TResult Function(String message) deletedFailed,
+    required TResult Function() updatedSuccess,
+    required TResult Function(String message) updatedFailed,
+    required TResult Function() createdSuccess,
+    required TResult Function(String message) createdFailed,
+  }) {
+    return createdFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingStarted,
+    TResult? Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult? Function(String message)? loadedFailed,
+    TResult? Function()? deletedSuccess,
+    TResult? Function(String message)? deletedFailed,
+    TResult? Function()? updatedSuccess,
+    TResult? Function(String message)? updatedFailed,
+    TResult? Function()? createdSuccess,
+    TResult? Function(String message)? createdFailed,
+  }) {
+    return createdFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingStarted,
+    TResult Function(List<ExpenseModel> expensesList)? loadedSuccess,
+    TResult Function(String message)? loadedFailed,
+    TResult Function()? deletedSuccess,
+    TResult Function(String message)? deletedFailed,
+    TResult Function()? updatedSuccess,
+    TResult Function(String message)? updatedFailed,
+    TResult Function()? createdSuccess,
+    TResult Function(String message)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (createdFailed != null) {
+      return createdFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingStarted value) loadingStarted,
+    required TResult Function(_LoadedSuccess value) loadedSuccess,
+    required TResult Function(_LoadedFailed value) loadedFailed,
+    required TResult Function(_DeletedSuccess value) deletedSuccess,
+    required TResult Function(_DeletedFailed value) deletedFailed,
+    required TResult Function(_UpdatedSuccess value) updatedSuccess,
+    required TResult Function(_UpdatedFailed value) updatedFailed,
+    required TResult Function(_CreatedSuccess value) createdSuccess,
+    required TResult Function(_CreatedFailed value) createdFailed,
+  }) {
+    return createdFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingStarted value)? loadingStarted,
+    TResult? Function(_LoadedSuccess value)? loadedSuccess,
+    TResult? Function(_LoadedFailed value)? loadedFailed,
+    TResult? Function(_DeletedSuccess value)? deletedSuccess,
+    TResult? Function(_DeletedFailed value)? deletedFailed,
+    TResult? Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult? Function(_UpdatedFailed value)? updatedFailed,
+    TResult? Function(_CreatedSuccess value)? createdSuccess,
+    TResult? Function(_CreatedFailed value)? createdFailed,
+  }) {
+    return createdFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingStarted value)? loadingStarted,
+    TResult Function(_LoadedSuccess value)? loadedSuccess,
+    TResult Function(_LoadedFailed value)? loadedFailed,
+    TResult Function(_DeletedSuccess value)? deletedSuccess,
+    TResult Function(_DeletedFailed value)? deletedFailed,
+    TResult Function(_UpdatedSuccess value)? updatedSuccess,
+    TResult Function(_UpdatedFailed value)? updatedFailed,
+    TResult Function(_CreatedSuccess value)? createdSuccess,
+    TResult Function(_CreatedFailed value)? createdFailed,
+    required TResult orElse(),
+  }) {
+    if (createdFailed != null) {
+      return createdFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatedFailed implements ExpenseState {
+  const factory _CreatedFailed(final String message) = _$CreatedFailedImpl;
+
+  String get message;
+
+  /// Create a copy of ExpenseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CreatedFailedImplCopyWith<_$CreatedFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

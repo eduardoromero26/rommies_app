@@ -24,7 +24,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       try {
         emit(const ExpenseState.loadingStarted());
         await expensesService.createExpense(event.expense);
-        emit(const ExpenseState.loadedSuccess([]));
+        emit(const ExpenseState.createdSuccess());
         emit(const ExpenseState.initial());
       } catch (e) {
         emit(ExpenseState.loadedFailed(e.toString()));
@@ -34,7 +34,18 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       try {
         emit(const ExpenseState.loadingStarted());
         await expensesService.updateExpense(event.expenseId, event.expense);
-        emit(const ExpenseState.loadedSuccess([]));
+        emit(const ExpenseState.updatedSuccess());
+        emit(const ExpenseState.initial());
+      } catch (e) {
+        emit(ExpenseState.loadedFailed(e.toString()));
+      }
+    });
+
+    on<DeleteExpense>((event, emit) async {
+      try {
+        emit(const ExpenseState.loadingStarted());
+        await expensesService.deleteExpense(event.expenseId);
+        emit(const ExpenseState.deletedSuccess());
         emit(const ExpenseState.initial());
       } catch (e) {
         emit(ExpenseState.loadedFailed(e.toString()));

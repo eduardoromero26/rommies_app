@@ -67,19 +67,21 @@ class ExpensesService {
     }
   }
 
-  // Future<void> deleteExpense(String expenseId) async {
-  //   try {
-  //     String? houseId = await _getHouseId();
-  //     if (houseId == null) {
-  //       print('House ID is null');
-  //       return;
-  //     }
-  //     await _firestoreService.deleteDocument(
-  //         'houses/$houseId/expenses', expenseId);
-  //   } catch (e) {
-  //     print('Error deleting expense: $e');
-  //   }
-  // }
+  Future<void> deleteExpense(String expenseId) async {
+    try {
+      final String? houseId =
+          await secureStorageService.read(SecureStorageKeys.houseId);
+      if (houseId != null) {
+        await firestoreService.deleteDocument(
+            '${FirestoreKeys.houses}/$houseId/${FirestoreKeys.expenses}',
+            expenseId);
+      } else {
+        throw Exception('House ID is null');
+      }
+    } catch (e) {
+      Exception('Error deleting expense: $e');
+    }
+  }
 
   Future<List<ExpenseModel>> readAllExpenses() async {
     try {

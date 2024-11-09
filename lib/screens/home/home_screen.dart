@@ -22,7 +22,43 @@ class HomeScreen extends StatelessWidget {
             child: const Icon(Icons.add),
           ),
           body: BlocConsumer<ExpenseBloc, ExpenseState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () {},
+                loadedFailed: (message) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                },
+                createdSuccess: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Aporte o Gasto creado exitosamente'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                },
+                updatedSuccess: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Aporte o Gasto actualizado exitosamente'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                },
+                deletedSuccess: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Aporte o Gasto eliminado exitosamente'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                },
+              );
+            },
             builder: (context, state) {
               return state.maybeWhen(
                 orElse: () {
@@ -83,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Hola, Josue!',
+                                          'Hola!',
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -157,14 +193,41 @@ class HomeScreen extends StatelessWidget {
                           height: 12,
                         ),
                       ),
-                      SliverList.builder(
-                        itemCount: expensesList.length,
-                        itemBuilder: (context, index) {
-                          return ExpenseListTile(
-                            expense: expensesList[index],
-                          );
-                        },
-                      ),
+                      expensesList.isNotEmpty
+                          ? SliverList.builder(
+                              itemCount: expensesList.length,
+                              itemBuilder: (context, index) {
+                                return ExpenseListTile(
+                                  expense: expensesList[index],
+                                );
+                              },
+                            )
+                          : const SliverFillRemaining(
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 48,
+                                      child: Icon(
+                                        Icons.money_off,
+                                        size: 48,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20.0,
+                                    ),
+                                    Text(
+                                      'No hay transacciones recientes',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                       const SliverToBoxAdapter(
                         child: SizedBox(
                           height: 60,
@@ -192,6 +255,7 @@ void _showAddTransactionBottomSheet(
         ),
         child: AddTransactionForm(
           expense: expense,
+          modalTitle: modalTitle,
         ),
       );
     },
@@ -226,7 +290,7 @@ class ExpenseListTile extends StatelessWidget {
                   : const Icon(Icons.arrow_downward_outlined)),
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
                 '${expense?.type == 0 ? '+' : '-'} \$${expense?.amount.toStringAsFixed(2)}',
@@ -252,7 +316,7 @@ class AddTransactionForm extends StatefulWidget {
   const AddTransactionForm({
     super.key,
     this.expense,
-    this.modalTitle = 'Agregar nuevo Aporte o Gasto',
+    required this.modalTitle,
   });
 
   @override
@@ -284,11 +348,24 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
               const SizedBox(
                 height: 20,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(widget.modalTitle,
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(widget.modalTitle,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                  ),
+                  if (widget.expense != null)
+                    IconButton(
+                        onPressed: () {
+                          context
+                              .read<ExpenseBloc>()
+                              .add(DeleteExpense(widget.expense!.id));
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.delete_outline_outlined))
+                ],
               ),
               const SizedBox(
                 height: 20,
