@@ -382,6 +382,12 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'El título es obligatorio';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 12,
@@ -429,11 +435,23 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'La cantidad es obligatoria';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 12,
               ),
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'La fecha es obligatoria';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: 'Fecha',
                   border: OutlineInputBorder(
