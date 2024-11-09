@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:roomies_app/bloc/expense/expense_bloc.dart';
+import 'package:roomies_app/models/expense_model.dart';
+import 'package:roomies_app/services/secure_storage/secure_storage_service.dart';
 import 'package:roomies_app/utils/enum/transaction_type_enum.dart';
+import 'package:roomies_app/utils/secure_storage_keys.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,155 +20,159 @@ class HomeScreen extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
-          body: CustomScrollView(
-            slivers: [
-              // hero section
-              SliverToBoxAdapter(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.black,
-                        Color.fromARGB(255, 0, 69, 125),
-                        Color.fromARGB(255, 0, 69, 125),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 28),
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 8.0,
-                        ),
-                        const Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              child: Icon(Icons.person),
-                            ),
-                            SizedBox(
-                              width: 12.0,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Hola, Josue!',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                                Text(
-                                  'Bienvenido.',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.white),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Container(
-                          height: 80,
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          decoration: BoxDecoration(
-                              color: Colors.grey[100],
-                              borderRadius: BorderRadius.circular(20)),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Balance del mes'),
-                              SizedBox(
-                                height: 2.0,
-                              ),
-                              Text(
-                                '\$2,430',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 24,
-                ),
-              ),
-              // recent transactions list
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                sliver: SliverToBoxAdapter(
-                  child: Text(
-                    'Recent Transactions',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 12,
-                ),
-              ),
-              SliverList.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: const Color.fromARGB(255, 215, 215, 215)),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: const ListTile(
-                        title: Text('Recibo CFE'),
-                        subtitle: Text('Periodo Julio - Agosto'),
-                        leading: CircleAvatar(
-                            child: Icon(Icons.arrow_upward_outlined)),
-                        trailing: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '+ \$2,430',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  color: Colors.green),
-                            ),
-                            Text('16 May, 2024')
-                          ],
-                        ),
-                      ),
-                    ),
+          body: BlocConsumer<ExpenseBloc, ExpenseState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
                   );
                 },
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 60,
-                ),
-              )
-            ],
+                initial: () {
+                  context
+                      .read<ExpenseBloc>()
+                      .add(const ReadExpensesCollection());
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+                loadedSuccess: (expensesList) {
+                  print(expensesList);
+                  return CustomScrollView(
+                    slivers: [
+                      // hero section
+                      SliverToBoxAdapter(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.black,
+                                Color.fromARGB(255, 0, 69, 125),
+                                Color.fromARGB(255, 0, 69, 125),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0, vertical: 28),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 8.0,
+                                ),
+                                const Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                      child: Icon(Icons.person),
+                                    ),
+                                    SizedBox(
+                                      width: 12.0,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Hola, Josue!',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                        Text(
+                                          'Bienvenido.',
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                Container(
+                                  height: 80,
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: const Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Balance del mes'),
+                                      SizedBox(
+                                        height: 2.0,
+                                      ),
+                                      Text(
+                                        '\$2,430',
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 24,
+                        ),
+                      ),
+                      // recent transactions list
+                      const SliverPadding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        sliver: SliverToBoxAdapter(
+                          child: Text(
+                            'Recent Transactions',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 12,
+                        ),
+                      ),
+                      SliverList.builder(
+                        itemCount: expensesList.length,
+                        itemBuilder: (context, index) {
+                          return ExpenseListTile(
+                            title: expensesList[index].title,
+                            description: expensesList[index].description,
+                            amount: expensesList[index].amount,
+                            type: expensesList[index].type,
+                            date: expensesList[index].date,
+                          );
+                        },
+                      ),
+                      const SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 60,
+                        ),
+                      )
+                    ],
+                  );
+                },
+              );
+            },
           )),
     );
   }
@@ -183,7 +193,59 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class ExpenseListTile extends StatelessWidget {
+  final String title;
+  final String? description;
+  final double amount;
+  final int type;
+  final DateTime date;
+  const ExpenseListTile({
+    super.key,
+    required this.title,
+    this.description,
+    required this.amount,
+    required this.type,
+    required this.date,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border.all(color: const Color.fromARGB(255, 215, 215, 215)),
+            borderRadius: BorderRadius.circular(20)),
+        child: ListTile(
+          title: Text(title),
+          subtitle: Text(description ?? ''),
+          leading: CircleAvatar(
+              child: type > 0
+                  ? const Icon(Icons.arrow_upward_outlined)
+                  : const Icon(Icons.arrow_downward_outlined)),
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${type > 0 ? '+' : '-'} \$${amount.toStringAsFixed(2)}',
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: type > 0 ? Colors.green : Colors.black),
+              ),
+              Text(DateFormat('dd/MM/yyyy').format(date)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class AddTransactionForm extends StatefulWidget {
+  const AddTransactionForm({super.key});
+
   @override
   _AddTransactionFormState createState() => _AddTransactionFormState();
 }
@@ -319,15 +381,28 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                       (states) => Theme.of(context).primaryColor,
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      // Save the transaction
+                      final String? houseId = await SecureStorageService()
+                          .read(SecureStorageKeys.houseId);
+                      final String? uid = await SecureStorageService()
+                          .read(SecureStorageKeys.uid);
+                      context.read<ExpenseBloc>().add(CreateExpense(
+                          ExpenseModel(
+                              id: '',
+                              title: _title,
+                              description: _description,
+                              amount: _amount,
+                              type: _transactionType.index,
+                              houseId: houseId ?? '',
+                              userId: uid ?? '',
+                              date: _selectedDate)));
                       Navigator.pop(context);
                     }
                   },
                   child: const Text(
-                    'Crear Transacción',
+                    'Guardar Cambios',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
