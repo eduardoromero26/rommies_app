@@ -85,8 +85,11 @@ class ExpensesService {
     try {
       final String? houseId =
           await secureStorageService.read(SecureStorageKeys.houseId);
-      List<DocumentSnapshot> docs =
-          await firestoreService.readAllDocuments('houses/$houseId/expenses');
+      List<DocumentSnapshot> docs = await firestoreService.readAllDocuments(
+        'houses/$houseId/expenses',
+        orderBy: 'date',
+        descending: true,
+      );
       return docs.map((doc) {
         return ExpenseModel.fromJson(doc.data() as Map<String, dynamic>);
       }).toList();

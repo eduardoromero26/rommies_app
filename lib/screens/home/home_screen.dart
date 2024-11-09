@@ -16,7 +16,8 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              _showAddTransactionBottomSheet(context);
+              _showAddTransactionBottomSheet(
+                  context, null, 'Agregar nuevo Aporte o Gasto');
             },
             child: const Icon(Icons.add),
           ),
@@ -160,11 +161,7 @@ class HomeScreen extends StatelessWidget {
                         itemCount: expensesList.length,
                         itemBuilder: (context, index) {
                           return ExpenseListTile(
-                            title: expensesList[index].title,
-                            description: expensesList[index].description,
-                            amount: expensesList[index].amount,
-                            type: expensesList[index].type,
-                            date: expensesList[index].date,
+                            expense: expensesList[index],
                           );
                         },
                       ),
@@ -181,37 +178,29 @@ class HomeScreen extends StatelessWidget {
           )),
     );
   }
+}
 
-  void _showAddTransactionBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          child: const AddTransactionForm(),
-        );
-      },
-    );
-  }
+void _showAddTransactionBottomSheet(
+    BuildContext context, ExpenseModel? expense, String modalTitle) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: AddTransactionForm(
+          expense: expense,
+        ),
+      );
+    },
+  );
 }
 
 class ExpenseListTile extends StatelessWidget {
-  final String title;
-  final String? description;
-  final double amount;
-  final int type;
-  final DateTime date;
-  const ExpenseListTile({
-    super.key,
-    required this.title,
-    this.description,
-    required this.amount,
-    required this.type,
-    required this.date,
-  });
+  final ExpenseModel? expense;
+  const ExpenseListTile({super.key, this.expense});
 
   @override
   Widget build(BuildContext context) {
@@ -222,10 +211,17 @@ class ExpenseListTile extends StatelessWidget {
             border: Border.all(color: const Color.fromARGB(255, 215, 215, 215)),
             borderRadius: BorderRadius.circular(20)),
         child: ListTile(
-          title: Text(title),
-          subtitle: Text(description ?? ''),
+          onTap: () {
+            _showAddTransactionBottomSheet(
+              context,
+              expense,
+              'Editar Aporte o Gasto',
+            );
+          },
+          title: Text(expense?.title ?? ''),
+          subtitle: Text(expense?.description ?? ''),
           leading: CircleAvatar(
-              child: type == 0
+              child: expense?.type == 0
                   ? const Icon(Icons.arrow_upward_outlined)
                   : const Icon(Icons.arrow_downward_outlined)),
           trailing: Column(
@@ -233,13 +229,14 @@ class ExpenseListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${type == 0 ? '+' : '-'} \$${amount.toStringAsFixed(2)}',
+                '${expense?.type == 0 ? '+' : '-'} \$${expense?.amount.toStringAsFixed(2)}',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: type == 0 ? Colors.green : Colors.black),
+                    color: expense?.type == 0 ? Colors.green : Colors.black),
               ),
-              Text(DateFormat('dd/MM/yyyy').format(date)),
+              Text(DateFormat('dd/MM/yyyy')
+                  .format(expense?.date ?? DateTime.now())),
             ],
           ),
         ),
@@ -249,7 +246,14 @@ class ExpenseListTile extends StatelessWidget {
 }
 
 class AddTransactionForm extends StatefulWidget {
-  const AddTransactionForm({super.key});
+  final ExpenseModel? expense;
+  final String modalTitle;
+
+  const AddTransactionForm({
+    super.key,
+    this.expense,
+    this.modalTitle = 'Agregar nuevo Aporte o Gasto',
+  });
 
   @override
   _AddTransactionFormState createState() => _AddTransactionFormState();
@@ -257,14 +261,19 @@ class AddTransactionForm extends StatefulWidget {
 
 class _AddTransactionFormState extends State<AddTransactionForm> {
   final _formKey = GlobalKey<FormState>();
-  String _title = '';
-  String _description = '';
-  double _amount = 0;
-  DateTime _selectedDate = DateTime.now();
-  TransactionType _transactionType = TransactionType.aporte;
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController titleController =
+        TextEditingController(text: widget.expense?.title ?? '');
+    final TextEditingController descriptionController =
+        TextEditingController(text: widget.expense?.description ?? '');
+    final TextEditingController amountController =
+        TextEditingController(text: widget.expense?.amount.toString() ?? '');
+    DateTime selectedDate = widget.expense?.date ?? DateTime.now();
+    TransactionType? transactionType = widget.expense?.type == 0
+        ? TransactionType.aporte
+        : TransactionType.gasto;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Form(
@@ -275,9 +284,9 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
               const SizedBox(
                 height: 20,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Agregar nuevo Aporte o Gasto',
+                child: Text(widget.modalTitle,
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
@@ -285,15 +294,13 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                 height: 20,
               ),
               TextFormField(
+                controller: titleController,
                 decoration: InputDecoration(
                   labelText: 'Título',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onSaved: (value) {
-                  _title = value!;
-                },
               ),
               const SizedBox(
                 height: 12,
@@ -305,7 +312,7 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                value: _transactionType,
+                value: transactionType,
                 items: TransactionType.values.map((TransactionType type) {
                   return DropdownMenuItem<TransactionType>(
                     value: type,
@@ -314,29 +321,26 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                   );
                 }).toList(),
                 onChanged: (TransactionType? newValue) {
-                  setState(() {
-                    _transactionType = newValue!;
-                  });
+                  transactionType = newValue!;
                 },
               ),
               const SizedBox(
                 height: 12,
               ),
               TextFormField(
+                controller: descriptionController,
                 decoration: InputDecoration(
                   labelText: 'Descripción',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onSaved: (value) {
-                  _description = value!;
-                },
               ),
               const SizedBox(
                 height: 12,
               ),
               TextFormField(
+                controller: amountController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'Cantidad',
@@ -344,9 +348,6 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onSaved: (value) {
-                  if (value != '') _amount = double.parse(value ?? '0');
-                },
               ),
               const SizedBox(
                 height: 12,
@@ -362,18 +363,16 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
                     context: context,
-                    initialDate: _selectedDate,
+                    initialDate: selectedDate,
                     firstDate: DateTime(2024),
                     lastDate: DateTime(2101),
                   );
-                  if (pickedDate != null && pickedDate != _selectedDate) {
-                    setState(() {
-                      _selectedDate = pickedDate;
-                    });
+                  if (pickedDate != null && pickedDate != selectedDate) {
+                    selectedDate = pickedDate;
                   }
                 },
                 controller: TextEditingController(
-                  text: "${_selectedDate.toLocal()}".split(' ')[0],
+                  text: "${selectedDate.toLocal()}".split(' ')[0],
                 ),
               ),
               const SizedBox(height: 20),
@@ -393,16 +392,34 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                           .read(SecureStorageKeys.houseId);
                       final String? uid = await SecureStorageService()
                           .read(SecureStorageKeys.uid);
-                      context.read<ExpenseBloc>().add(CreateExpense(
-                          ExpenseModel(
-                              id: '',
-                              title: _title,
-                              description: _description,
-                              amount: _amount,
-                              type: _transactionType.index,
-                              houseId: houseId ?? '',
-                              userId: uid ?? '',
-                              date: _selectedDate)));
+                      widget.expense == null
+                          ? context.read<ExpenseBloc>().add(CreateExpense(
+                              ExpenseModel(
+                                  id: '',
+                                  title: titleController.text,
+                                  description: descriptionController.text,
+                                  amount: double.parse(amountController.text),
+                                  type:
+                                      transactionType == TransactionType.aporte
+                                          ? 0
+                                          : 1,
+                                  houseId: houseId ?? '',
+                                  userId: uid ?? '',
+                                  date: selectedDate)))
+                          : context.read<ExpenseBloc>().add(UpdateExpense(
+                              widget.expense!.id,
+                              ExpenseModel(
+                                  id: widget.expense!.id,
+                                  title: titleController.text,
+                                  description: descriptionController.text,
+                                  amount: double.parse(amountController.text),
+                                  type:
+                                      transactionType == TransactionType.aporte
+                                          ? 0
+                                          : 1,
+                                  houseId: houseId ?? '',
+                                  userId: uid ?? '',
+                                  date: selectedDate)));
                       Navigator.pop(context);
                     }
                   },

@@ -44,14 +44,16 @@ class FirestoreService {
   }
 
   // Read all documents from a collection
-  Future<List<DocumentSnapshot>> readAllDocuments(String collectionPath) async {
-    try {
-      QuerySnapshot querySnapshot =
-          await _firestore.collection(collectionPath).get();
-      return querySnapshot.docs;
-    } catch (e) {
-      Exception('Error reading all documents: $e');
-      rethrow;
+  Future<List<DocumentSnapshot>> readAllDocuments(
+    String collectionPath, {
+    String? orderBy,
+    bool descending = false,
+  }) async {
+    Query query = _firestore.collection(collectionPath);
+    if (orderBy != null) {
+      query = query.orderBy(orderBy, descending: descending);
     }
+    QuerySnapshot querySnapshot = await query.get();
+    return querySnapshot.docs;
   }
 }
