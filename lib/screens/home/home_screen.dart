@@ -38,7 +38,12 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 loadedSuccess: (expensesList) {
-                  print(expensesList);
+                  final double balance = expensesList.fold(
+                      0,
+                      (previousValue, element) => element.type == 0
+                          ? previousValue + element.amount
+                          : previousValue - element.amount);
+
                   return CustomScrollView(
                     slivers: [
                       // hero section
@@ -104,18 +109,18 @@ class HomeScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: Colors.grey[100],
                                       borderRadius: BorderRadius.circular(20)),
-                                  child: const Column(
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('Balance del mes'),
-                                      SizedBox(
+                                      const Text('Balance del mes'),
+                                      const SizedBox(
                                         height: 2.0,
                                       ),
                                       Text(
-                                        '\$2,430',
-                                        style: TextStyle(
+                                        '\$$balance',
+                                        style: const TextStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -186,7 +191,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: AddTransactionForm(),
+          child: const AddTransactionForm(),
         );
       },
     );
@@ -220,7 +225,7 @@ class ExpenseListTile extends StatelessWidget {
           title: Text(title),
           subtitle: Text(description ?? ''),
           leading: CircleAvatar(
-              child: type > 0
+              child: type == 0
                   ? const Icon(Icons.arrow_upward_outlined)
                   : const Icon(Icons.arrow_downward_outlined)),
           trailing: Column(
@@ -228,11 +233,11 @@ class ExpenseListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${type > 0 ? '+' : '-'} \$${amount.toStringAsFixed(2)}',
+                '${type == 0 ? '+' : '-'} \$${amount.toStringAsFixed(2)}',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: type > 0 ? Colors.green : Colors.black),
+                    color: type == 0 ? Colors.green : Colors.black),
               ),
               Text(DateFormat('dd/MM/yyyy').format(date)),
             ],
