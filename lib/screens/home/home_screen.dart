@@ -334,6 +334,10 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
         TextEditingController(text: widget.expense?.description ?? '');
     final TextEditingController amountController =
         TextEditingController(text: widget.expense?.amount.toString() ?? '');
+    final TextEditingController dateController = TextEditingController(
+        text: DateFormat('dd/MM/yyyy')
+            .format(widget.expense?.date ?? DateTime.now()));
+
     DateTime selectedDate = widget.expense?.date ?? DateTime.now();
     TransactionType? transactionType = widget.expense?.type == 0
         ? TransactionType.aporte
@@ -446,11 +450,11 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                   );
                   if (pickedDate != null && pickedDate != selectedDate) {
                     selectedDate = pickedDate;
+                    dateController.text =
+                        DateFormat('dd/MM/yyyy').format(selectedDate);
                   }
                 },
-                controller: TextEditingController(
-                  text: "${selectedDate.toLocal()}".split(' ')[0],
-                ),
+                controller: dateController,
               ),
               const SizedBox(height: 20),
               SizedBox(
