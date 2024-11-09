@@ -20,5 +20,15 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
         emit(ExpenseState.loadedFailed(e.toString()));
       }
     });
+    on<CreateExpense>((event, emit) async {
+      try {
+        emit(const ExpenseState.loadingStarted());
+        await expensesService.createExpense(event.expense);
+        emit(const ExpenseState.loadedSuccess([]));
+        emit(const ExpenseState.initial());
+      } catch (e) {
+        emit(ExpenseState.loadedFailed(e.toString()));
+      }
+    });
   }
 }

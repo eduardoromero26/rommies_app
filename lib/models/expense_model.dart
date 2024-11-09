@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ExpenseModel {
   final String id;
   final String title;
@@ -27,10 +29,21 @@ class ExpenseModel {
       houseId: json['houseId'],
       userId: json['userId'],
       type: json['type'],
-      date: DateTime.parse(
-        json['date'],
-      ),
+      date: (json['date'] as Timestamp).toDate(),
     );
+  }
+
+  Map<String, dynamic> toDocument() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'amount': amount,
+      'houseId': houseId,
+      'userId': userId,
+      'date': Timestamp.fromDate(date),
+      'type': type,
+    };
   }
 
   Map<String, dynamic> toJson() {
@@ -42,7 +55,29 @@ class ExpenseModel {
       'houseId': houseId,
       'userId': userId,
       'type': type,
-      'date': date.toIso8601String(),
+      'date': Timestamp.fromDate(date),
     };
+  }
+
+  ExpenseModel copyWith({
+    String? id,
+    String? title,
+    String? description,
+    double? amount,
+    String? houseId,
+    String? userId,
+    DateTime? date,
+    int? type,
+  }) {
+    return ExpenseModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      amount: amount ?? this.amount,
+      houseId: houseId ?? this.houseId,
+      userId: userId ?? this.userId,
+      date: date ?? this.date,
+      type: type ?? this.type,
+    );
   }
 }
